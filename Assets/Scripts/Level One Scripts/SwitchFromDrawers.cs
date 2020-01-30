@@ -6,11 +6,11 @@ using UnityEngine.Assertions;
 public class SwitchFromDrawers : MonoBehaviour
 {
 
-    private Vector3 drawerTwoOut = new Vector3(-0.4706192f, 0.588f, 0.269f);
-    private Vector3 drawerTwoIn = new Vector3(-0.4706192f, 0.588f, -0.021f);
+    private Vector3 drawerTwoOut = new Vector3(-0.5769249f, 0.673501f, 0.652f);
+    private Vector3 drawerTwoIn = new Vector3(-0.5769249f, 0.673501f, 0.266f);
 
-    private Vector3 drawerMainOut = new Vector3(0.02829475f, 0.601f, 0.277f);
-    private Vector3 drawerMainIn = new Vector3(0.02829475f, 0.601f, 0);
+    private Vector3 drawerMainOut = new Vector3(0, 0.673501f, 0.726f);
+    private Vector3 drawerMainIn = new Vector3(0, 0.673501f, 0.269f);
 
     //Cameras
     private GameObject mainCamera;
@@ -38,8 +38,8 @@ public class SwitchFromDrawers : MonoBehaviour
         insideDrawerMain = this.transform.GetChild(1).gameObject;
         mainCanvas = GameObject.Find("Canvas");
         Table = GameObject.Find("Table");
-        drawerTwo = Table.transform.GetChild(3).gameObject;
-        drawerMain = Table.transform.GetChild(2).gameObject;
+        drawerTwo = Table.transform.GetChild(2).gameObject;
+        drawerMain = Table.transform.GetChild(1).gameObject;
         panelLeft = mainCanvas.transform.GetChild(0).gameObject;
         panelRight = mainCanvas.transform.GetChild(1).gameObject;
         panelBack = mainCanvas.transform.GetChild(2).gameObject;
