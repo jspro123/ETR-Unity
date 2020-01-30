@@ -12,6 +12,8 @@ public class HandleRotation : MonoBehaviour
     private float rotationDuration = 0.75f;
     [SerializeField]
     private float rotationSpeed = 0.5f;
+    [HideInInspector]
+    public bool stillSpinning = false;
 
     private GameObject panelLeft;
     private GameObject panelRight;
@@ -38,6 +40,7 @@ public class HandleRotation : MonoBehaviour
 
             if(Time.time > stop)
             {
+                stillSpinning = false;
                 this.transform.rotation = new_rot;
                 panelLeft.SetActive(true);
                 panelRight.SetActive(true);
@@ -52,12 +55,14 @@ public class HandleRotation : MonoBehaviour
         if (rotate_left)
         {
             Quaternion newRot = this.transform.rotation * Quaternion.Euler(new Vector3(0, current.rotateLeft, 0));
+            stillSpinning = true;
             StartCoroutine(rotateSlowly(newRot));
             current = current.leftWall;
 
         } else
         {
             Quaternion newRot = this.transform.rotation * Quaternion.Euler(new Vector3(0, current.rotateRight, 0));
+            stillSpinning = true;
             StartCoroutine(rotateSlowly(newRot));
             current = current.rightWall;
         }

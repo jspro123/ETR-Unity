@@ -373,7 +373,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName: Door
   level: {fileID: 11400000, guid: ccd64af9fe782454fb1bf1486f64c3e9, type: 2}
-  conditions: []
+  conditions:
+  - name: inputPassword
+    value: 0
   sentences:
   - sentence:
     - No good. It's locked.

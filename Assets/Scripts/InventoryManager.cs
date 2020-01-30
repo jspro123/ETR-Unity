@@ -11,11 +11,7 @@ public class InventoryManager : MonoBehaviour
     public GameState level;
     private int currentSlot = 0;
     private GameObject mainCanvas;
-    private GameObject panelLeft;
-    private GameObject panelRight;
-    private GameObject panelBack;
     private GameObject panelInventory;
-    private GameObject panelText;
     private List<GameObject> inventorySlots;
     private List<GameObject> itemSlots;
     private RoomManager roomScript;
@@ -23,11 +19,7 @@ public class InventoryManager : MonoBehaviour
     void Awake()
     {
         mainCanvas = GameObject.Find("Canvas");
-        panelLeft = mainCanvas.transform.GetChild(0).gameObject;
-        panelRight = mainCanvas.transform.GetChild(1).gameObject;
-        panelBack = mainCanvas.transform.GetChild(2).gameObject;
         panelInventory = mainCanvas.transform.GetChild(3).gameObject;
-        panelText = mainCanvas.transform.GetChild(4).gameObject;
 
         roomScript = GameObject.Find("RoomManager").GetComponent<RoomManager>();
 

@@ -55,6 +55,7 @@ public class DisplayText : MonoBehaviour
         Assert.IsNotNull(roomManager);
         Assert.IsNotNull(roomManagerScript);
 
+        panelBack.SetActive(false);
         panelText.transform.localScale = new Vector3(0, 0, 0);
     }
 

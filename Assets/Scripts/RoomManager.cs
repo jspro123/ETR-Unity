@@ -16,14 +16,10 @@ public class RoomManager : MonoBehaviour
     public GameObject startingCamera;
     private GameObject activeCamera;
 
-    //UI
-    private GameObject mainCanvas;
-    private GameObject panelInventory;
-    private GameObject panelText;
-
     //Scripts
     private InventoryManager inventoryScript;
     private DisplayText textScript;
+    private HandleRotation rotationScript;
 
     //Gamestate
     public GameObject inUse;
@@ -38,20 +34,15 @@ public class RoomManager : MonoBehaviour
         //Setting up Misc
         inUse = null;
 
-        //Setting up UI
-        mainCanvas = GameObject.Find("Canvas");
-        panelInventory = mainCanvas.transform.GetChild(3).gameObject;
-        panelText = mainCanvas.transform.GetChild(4).gameObject;
-
         //Setting up scripts
-        inventoryScript = panelInventory.GetComponent<InventoryManager>();
-        textScript = panelText.GetComponent<DisplayText>();
+        inventoryScript = FindObjectOfType<InventoryManager>();
+        textScript = FindObjectOfType<DisplayText>();
+        rotationScript = FindObjectOfType<HandleRotation>();
 
         //Want Unity to complain if something is fishy
-        Assert.IsNotNull(mainCanvas);
-        Assert.IsNotNull(panelText);
         Assert.IsNotNull(inventoryScript);
         Assert.IsNotNull(textScript);
+        Assert.IsNotNull(rotationScript);
         startingCamera.SetActive(true);
         activeCamera = startingCamera;
 
@@ -113,7 +104,7 @@ public class RoomManager : MonoBehaviour
     private void Update()
     {
 
-        if (textScript.textVisible) { return; }
+        if (textScript.textVisible || rotationScript.stillSpinning) { return; }
 
         if (Input.GetKeyDown("i"))
         {
